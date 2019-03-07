@@ -35,7 +35,7 @@
                             환영합니다. {{user.username}} 님!
                         </a>
                         <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
-                            <a class="nav-link" href="{%url 'new'%}">글쓰기</a>
+                            <a class="nav-link" href="{%url 'new'%}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;글쓰기</a>
                             <a class="dropdown-item" href="javascript:{document.getElementById('logout').submit()}">Logout</a>
                             <form id="logout" method="POST" action="{%url 'logout'%}">
                                 {% csrf_token %} <input type="hidden" />
@@ -43,12 +43,15 @@
                         </div>
                     </li>
                     {%else%}
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="{% url 'signup' %}">Signup</a>
-                    </li>
-                    <li class="nav-item">
-                        <a class="nav-item nav-link" href="{% url 'login' %}">Login</a>
-                    </li>
+                    <li class="nav-item dropdown">
+                        <a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" role="button"
+                            data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                            Accounts
+                        </a>
+                        <div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                        <a class="nav-item nav-link" href="{% url 'signup' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Signup</a>
+                        <a class="nav-item nav-link" href="{% url 'login' %}">&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;Login</a>
+                    </div></li>
                     {% endif %}
                 </ul>
             </div>
